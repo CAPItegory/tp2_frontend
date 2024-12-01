@@ -20,7 +20,7 @@ export class ListArtistComponent {
   artists : Artist[] = []
 
   pageNumber: number = 1
-  pageSize: number = 4
+  pageSize: number = 10
   totalPages: number = 0
   minPage = 1
   

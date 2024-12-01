@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PaginationBarComponent {
   @Input() pageNumber : number = 0
-  @Input() totalPages : number = 0
+  @Input() totalPages : number = 1
   @Input() minPage : number = 0
 
   @Output() pageNumberChange: EventEmitter<number> = new EventEmitter()
@@ -22,7 +22,7 @@ export class PaginationBarComponent {
   }
 
   previousPage() {
-    if(this.pageNumber == 1) {
+    if(this.pageNumber == 0) {
       return
     }
     this.pageNumberChange.emit(this.pageNumber - 1)

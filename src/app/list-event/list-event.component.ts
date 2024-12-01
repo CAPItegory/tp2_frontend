@@ -17,8 +17,8 @@ export class ListEventComponent {
   @Input() id: string | null = null
   events : Event[] = []
 
-  pageNumber: number = 1
-  pageSize: number = 4
+  pageNumber: number = 0
+  pageSize: number = 3
   totalPages: number = 0
   minPage = 1
   

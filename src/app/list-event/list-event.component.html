@@ -13,9 +13,9 @@
                 </div>
                 <div>
                     <p class="name">{{event.label}}</p>
-                    <p class="dates">From : {{event.startDate}} -  To :{{event.endDate}}</p>
-                    @if(event.artists.length > 1) {
-                        <p class="artists">Will be present {{event.artists.length}}: {{event.artists[0].label}}
+                    <p class="dates">From : {{event.startDate}} -  To : {{event.endDate}}</p>
+                    @if(event.artists.length >= 1) {
+                        <p class="artists">Will be present {{event.artists.length}} artists: {{event.artists[0].label}}
                             @if(event.artists.length > 2) {
                                 , {{event.artists[1].label}}
                             }...</p>
