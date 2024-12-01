@@ -1,0 +1,17 @@
+<div id="event-detail">
+    <div id="event-text">
+        <h1>{{event?.label}}</h1>
+        <p>From {{event?.startDate}} to {{event?.endDate}}</p>
+        <div>
+            <p>Coming artists :</p>
+            <ul>
+            @for (artist of event?.artists; track $index) {
+                <li>{{artist.label}}</li>
+            }
+            @if (event?.artists?.length == 0) {
+                <p>Nobody</p>
+            }
+        </ul>
+        </div>
+    </div>
+</div>
