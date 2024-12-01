@@ -1,0 +1,55 @@
+:root {
+    width: 100%;
+}
+
+.pagination-bar {
+    width: 100%;
+    position: fixed;     
+    padding: 10px 0;
+    color: #fff;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+label {
+    color: white;
+}
+
+.field-input {
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+}
+
+.wrapped {
+    background-color: #000000;
+    border-radius: 2rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 70%;
+    height: 3rem;
+    padding-inline: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+button {
+    background: #ff003c;
+    border-radius: 999px;
+    box-shadow: #ff003c 0 10px 20px -10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter,Helvetica;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 18px;
+    border: 0;
+    margin: auto;
+  }
