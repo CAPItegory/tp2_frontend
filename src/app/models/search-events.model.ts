@@ -1,4 +1,6 @@
-interface SearchEventResult {
+import { Event } from "./event.model"
+
+export interface SearchEventResult {
     totalElements: number,
     totalPages: number,
     size: number,

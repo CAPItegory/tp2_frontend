@@ -1,4 +1,6 @@
-interface SearchArtistResult {
+import { Artist } from "./artist.model"
+
+export interface SearchArtistResult {
     totalElements: number,
     totalPages: number,
     size: number,
