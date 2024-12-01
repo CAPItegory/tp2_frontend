@@ -1,14 +1,16 @@
 #artist-detail {
-    color:aliceblue;
-    background-color: #000000b5;
-    margin: 2rem;
-    border-radius: 35px;
-    width: 70%;
-    height: 85%;
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 #artist-text {
+    color:aliceblue;
+    background-color: #000000b5;
+    margin: 2rem;
+    margin-block: 5rem;
+    border-radius: 35px;
     padding: 2rem;
 }
