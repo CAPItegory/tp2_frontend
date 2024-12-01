@@ -1,1 +1,18 @@
-<p>nav-bar works!</p>
+<div id="bar">
+    <div id="logo" routerLink="/" routerLinkActive="active">
+        <img src="assets/logo.svg" />
+        <span id="title"><strong>CAPIventist</strong></span>
+    </div>
+    <div class="navigation">
+        <div class="nav-button-artist">
+            <a routerLink="/list-artists" routerLinkActive="active">
+                <img src="assets/artist.svg" />
+            </a>
+        </div>
+        <div class="nav-button-events">
+            <a routerLink="/list-events" routerLinkActive="active">
+                <img src="assets/calendar.svg" />
+            </a>
+        </div>
+    </div>
+</div>
