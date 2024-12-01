@@ -1,6 +1,11 @@
 <div id="artist-detail">
-    <div id="artist-text">
+    <div id="artist-text" [hidden]="!isHiddenEditPopUp">
         <h1>{{artist?.id}}</h1>
         <p>{{artist?.label}}</p>
     </div>
+    <button (click)="showPopUp()" [hidden]="!isHiddenEditPopUp">Edit</button>
+</div>
+
+<div class="edit-popup" [hidden]="isHiddenEditPopUp">
+    <app-artist-management [editMode]="true" [artistId]="artist?.id ?? ''" (hiddenChange)="hidePopUp()" (artistChange)="setArtistData($event)"></app-artist-management>
 </div>
