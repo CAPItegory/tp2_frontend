@@ -1,0 +1,22 @@
+<div id="events">
+    <div id="header">
+        <div class="title">
+        <h2>List of events</h2>
+        </div>
+    </div>
+    <article>
+        <div class="list">
+        @for (event of events; track $index) {
+            <div class="event" [routerLink]="['/events', event.id]">
+                <div class="img_column">
+                    <img src="../../assets/details.svg" />
+                </div>
+                <div>
+                    <p class="name">{{event.label}}</p>
+                </div>
+            </div>
+        }
+        </div>
+    </article>
+</div>
+<app-pagination-bar [pageNumber]="pageNumber" [totalPages]="totalPages" [minPage]="minPage"></app-pagination-bar>
