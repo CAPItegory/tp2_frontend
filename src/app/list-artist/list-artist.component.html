@@ -1,0 +1,23 @@
+<div id="artists">
+    <div id="header">
+        <div class="title">
+        <h2>List of artists</h2>
+        </div>
+    </div>
+    <article>
+        <div class="list">
+        @for (artist of artists; track $index) {
+            <div class="artist" [routerLink]="['/artists', artist.id]">
+                <div class="img_column">
+                    <img src="../../assets/details.svg" />
+                </div>
+                <div>
+                    <p class="name">{{artist.label}}</p>
+                </div>
+            </div>
+        }
+        </div>
+    </article>
+</div>
+<app-pagination-bar [pageNumber]="pageNumber" [totalPages]="totalPages" [minPage]="minPage"></app-pagination-bar>
+
