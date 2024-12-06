@@ -20,7 +20,7 @@ export class ArtistService {
 
     editArtist(id: string, label: string): Observable<Artist> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        return this.http.put<Artist>(`${this.apiUrl}/${id}`, label, { headers });
+        return this.http.put<Artist>(`${this.apiUrl}/${id}`, {'label': label}, { headers });
     }
 
     deleteArtist(id: string): void {
@@ -29,7 +29,7 @@ export class ArtistService {
 
     createArtist(label: string): Observable<Artist> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        return this.http.post<Artist>(this.apiUrl, label, { headers });
+        return this.http.post<Artist>(this.apiUrl, {label: label}, { headers });
     }
     
     getEventsByArtist(artistId: string): Observable<Event[]> {

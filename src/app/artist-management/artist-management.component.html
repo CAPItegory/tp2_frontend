@@ -1,0 +1,20 @@
+<div id="create_artist">
+    @if (!editMode) {
+        <h2>Create a new artist</h2>
+    }
+    @else {
+        <h2>Edit artist</h2>
+    }
+    
+    <form [formGroup]="artistForm" (ngSubmit)="manageArtist()">
+        <label id="artist_name" for="name">
+            <input type="text" id="name" placeholder="&nbsp;" formControlName="name">
+            <span class="label">New artist name:</span>
+            <span class="focus-bg"></span>
+        </label>
+        <div class="row">
+            <button type="submit" id="submit" value="send">Send</button>
+            <button type="button" value="back" (click)="hidePopup()">Back</button>
+        </div>
+    </form>
+</div>

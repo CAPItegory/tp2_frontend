@@ -6,21 +6,23 @@ import { Event } from '../models/event.model';
 
 import { PaginationBarComponent } from '../pagination-bar/pagination-bar.component';
 import { Artist } from '../models/artist.model';
+import { ArtistManagementComponent } from '../artist-management/artist-management.component';
 
 @Component({
   selector: 'app-list-artist',
   standalone: true,
-  imports: [RouterLink, PaginationBarComponent],
+  imports: [RouterLink, PaginationBarComponent, ArtistManagementComponent],
   templateUrl: './list-artist.component.html',
   styleUrl: './list-artist.component.scss'
 })
 export class ListArtistComponent {
   @Input() id: string | null = null
   artists : Artist[] = []
+  isHiddenPopUp: boolean = true;
 
   events: Map<Artist, Event[]> = new Map()
 
-  pageNumber: number = 1
+  pageNumber: number = 0
   pageSize: number = 10
   totalPages: number = 1
   minPage = 1
@@ -51,6 +53,14 @@ export class ListArtistComponent {
         this.totalPages = response.totalPages;
         this.artists.forEach(a => this.setArtistEvents(a));
       });
+  }
+
+  public showCreatePopUp() {
+    this.isHiddenPopUp = false;
+  }
+
+  public hidePopUp() {
+    this.isHiddenPopUp = true;
   }
 
 }
