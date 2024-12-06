@@ -7,18 +7,23 @@
     <article>
         <div class="artists">
         @for (artist of artists; track $index) {
-            <div class="artist" [routerLink]="['/artists', artist.id]">
-                <div class="img_column">
-                    <img src="../../assets/details.svg" />
+            <div class="artist_actions">
+                <div class="artist" [routerLink]="['/artists', artist.id]">
+                    <div class="img_column">
+                        <img src="../../assets/details.svg" />
+                    </div>
+                    <div>
+                        <p class="name">{{artist.label}}</p>
+                        @if(events.get(artist)?.length ?? 0 >= 1) {
+                            <p class="artists">Will be present in {{events.get(artist)?.length ?? 0}} events: {{events.get(artist)?.at(0)?.label}}
+                                @if(events.get(artist)?.length ?? 0 >= 2) {
+                                    , {{events.get(artist)?.at(1)?.label}}
+                                }...</p>
+                        }
+                    </div>
                 </div>
-                <div>
-                    <p class="name">{{artist.label}}</p>
-                    @if(events.get(artist)?.length ?? 0 >= 1) {
-                        <p class="artists">Will be present in {{events.get(artist)?.length ?? 0}} events: {{events.get(artist)?.at(0)?.label}}
-                            @if(events.get(artist)?.length ?? 0 >= 2) {
-                                , {{events.get(artist)?.at(1)?.label}}
-                            }...</p>
-                    }
+                <div class="img_column">
+                    <img src="assets/trash-icon.svg" (click)="deleteArtist(artist.id)" />
                 </div>
             </div>
         }
