@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Artist } from '../models/artist.model';
+import { Event } from '../models/event.model';
 import { SearchArtistResult } from '../models/search-artists.model';
 
 @Injectable({
