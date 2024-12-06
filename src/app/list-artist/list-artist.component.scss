@@ -22,8 +22,10 @@ img {
     flex-direction: row;
 }
 
-#artists {
-    width: 100%;
+.artists {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
 }
 
 p, h2 {
@@ -43,7 +45,7 @@ button {
 }
 
 .list {
-    width: 80%;
+    width: 100%;
 }
 
 article {
@@ -55,9 +57,8 @@ article {
 }
 
 .artist {
-    width: 100%;
-    margin-bottom: 1rem;
-    align-items: center;
+    margin-bottom: 0.3rem;
+    margin-inline: auto;
     display: flex;
     flex-direction: row;
     cursor: pointer;
@@ -71,24 +72,7 @@ article {
     box-shadow: 0px 2px 2px rgb(0, 0, 0);
     background-color: rgb(255, 81, 0);
     border-radius: 20px;
-    width: 100%;
-
-    &::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: white;
-        transform-origin: bottom center;
-        transition: transform 0.25s ease-out;
-    }
-    &:hover::after {
-        transform: scaleX(1);
-        transform-origin: bottom center;
-    }
+    width: 80%;
 }
 
 .title {
