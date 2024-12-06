@@ -23,13 +23,15 @@
 .edit-popup {
     position: absolute;
     width: 100%;
-    height: 90%;
+    height: 100%;
 }
 
 :host {
+    position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: row;
     height: 100%;
+    width: 100%;
 }
 
 button {
@@ -44,4 +46,11 @@ button {
     padding: 8px 18px;
     border: 0;
     margin: auto;
+}
+
+.back-arrow {
+    padding: 2rem;
+    img {
+        width: 50%;
+    }
 }

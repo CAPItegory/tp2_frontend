@@ -1,7 +1,10 @@
-<div id="artist-detail">
-    <div id="artist-text" [hidden]="!isHiddenEditPopUp">
+<a routerLink="/list-artists" class="back-arrow">
+    <img src="/assets/back-arrow.svg"/>
+</a>
+<div id="artist-detail" [hidden]="!isHiddenEditPopUp">
+    <div id="artist-text" >
         <h1>{{artist?.label}}</h1>
-        <button (click)="showPopUp()" [hidden]="!isHiddenEditPopUp">Edit</button>
+        <button (click)="showPopUp()">Edit</button>
     </div>
 </div>
 
