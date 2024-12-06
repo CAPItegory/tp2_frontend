@@ -1,6 +1,13 @@
-<div id="artist-detail">
-    <div id="artist-text">
-        <h1>{{artist?.id}}</h1>
-        <p>{{artist?.label}}</p>
+<a routerLink="/artists" class="back-arrow">
+    <img src="/assets/back-arrow.svg"/>
+</a>
+<div id="artist-detail" [hidden]="!isHiddenEditPopUp">
+    <div id="artist-text" >
+        <h1>{{artist?.label}}</h1>
+        <button (click)="showPopUp()">Edit</button>
     </div>
+</div>
+
+<div class="edit-popup" [hidden]="isHiddenEditPopUp">
+    <app-artist-management [editMode]="true" [artistId]="artist?.id ?? ''" (hiddenChange)="hidePopUp()" (artistChange)="setArtistData($event)"></app-artist-management>
 </div>
