@@ -15,14 +15,14 @@ export class PaginationBarComponent {
   @Output() pageNumberChange: EventEmitter<number> = new EventEmitter()
 
   nextPage() {
-    if(this.pageNumber >= this.totalPages) {
+    if(this.pageNumber + 1 >= this.totalPages) {
       return
     }
     this.pageNumberChange.emit(this.pageNumber + 1)
   }
 
   previousPage() {
-    if(this.pageNumber == 1) {
+    if(this.pageNumber == 0) {
       return
     }
     this.pageNumberChange.emit(this.pageNumber - 1)

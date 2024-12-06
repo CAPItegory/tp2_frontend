@@ -21,7 +21,7 @@ export class ListArtistComponent {
   artists : Artist[] = []
   isHiddenPopUp: boolean = true;
 
-  pageNumber: number = 1
+  pageNumber: number = 0
   pageSize: number = 10
   totalPages: number = 1
   minPage = 1
