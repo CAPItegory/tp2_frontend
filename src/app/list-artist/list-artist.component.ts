@@ -7,11 +7,12 @@ import { Event } from '../models/event.model';
 import { PaginationBarComponent } from '../pagination-bar/pagination-bar.component';
 import { Artist } from '../models/artist.model';
 import { ArtistManagementComponent } from '../artist-management/artist-management.component';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
 
 @Component({
   selector: 'app-list-artist',
   standalone: true,
-  imports: [RouterLink, PaginationBarComponent, ArtistManagementComponent],
+  imports: [RouterLink, PaginationBarComponent, ArtistManagementComponent, SearchBarComponent],
   templateUrl: './list-artist.component.html',
   styleUrl: './list-artist.component.scss'
 })
@@ -26,6 +27,7 @@ export class ListArtistComponent {
   pageSize: number = 10
   totalPages: number = 1
   minPage = 1
+  filterValue: string = ""
   
   constructor(private artistService: ArtistService, private activatedRoute : ActivatedRoute, private popupService : PopupService) {}
 
@@ -45,8 +47,13 @@ export class ListArtistComponent {
     this.artistService.getEventsByArtist(artist.id).subscribe(result => this.events.set(artist, result));
   }
 
+  setFilterValue(filter: string) {
+    this.filterValue = filter
+    this.loadChildren()
+  }
+
   protected async loadChildren() {
-    this.artistService.searchArtist(this.pageNumber, this.pageSize, [])
+    this.artistService.searchArtist(this.pageNumber, this.pageSize, [], this.filterValue)
     .subscribe(
       (response) => {
         this.artists = response.content;

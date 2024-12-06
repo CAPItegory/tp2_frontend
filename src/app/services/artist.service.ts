@@ -36,11 +36,12 @@ export class ArtistService {
         return this.http.get<Event[]>(`${this.apiUrl}/${artistId}/events`);
     }
 
-    searchArtist(page: number, size: number, sort: string[]): Observable<SearchArtistResult> {
+    searchArtist(page: number, size: number, sort: string[], filterLabel : string): Observable<SearchArtistResult> {
         let params = new HttpParams();
         params = params.append("page", page)
         params = params.append("size", size)
         params = params.append("sort", sort.toString())
+        params = params.append("label", filterLabel)
         return this.http.get<SearchArtistResult>(this.apiUrl, { params: params });
     }
 }
