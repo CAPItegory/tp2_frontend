@@ -9,6 +9,6 @@ export const routes: Routes = [
     { path : '', component: HomeComponent },
     { path : 'artists/:id', component: ArtistComponent },
     { path : 'events/:id', component: EventComponent},
-    { path : 'list-artists', component : ListArtistComponent},
-    { path : 'list-events', component : ListEventComponent}
+    { path : 'artists', component : ListArtistComponent},
+    { path : 'events', component : ListEventComponent}
 ];
