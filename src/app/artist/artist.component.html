@@ -1,9 +1,8 @@
 <div id="artist-detail">
     <div id="artist-text" [hidden]="!isHiddenEditPopUp">
-        <h1>{{artist?.id}}</h1>
-        <p>{{artist?.label}}</p>
+        <h1>{{artist?.label}}</h1>
+        <button (click)="showPopUp()" [hidden]="!isHiddenEditPopUp">Edit</button>
     </div>
-    <button (click)="showPopUp()" [hidden]="!isHiddenEditPopUp">Edit</button>
 </div>
 
 <div class="edit-popup" [hidden]="isHiddenEditPopUp">
