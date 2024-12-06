@@ -20,8 +20,8 @@ export class ListArtistComponent {
   artists : Artist[] = []
 
   pageNumber: number = 1
-  pageSize: number = 4
-  totalPages: number = 0
+  pageSize: number = 10
+  totalPages: number = 1
   minPage = 1
   
   constructor(private artistService: ArtistService, private activatedRoute : ActivatedRoute, private popupService : PopupService) {}

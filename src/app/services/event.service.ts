@@ -33,9 +33,9 @@ export class EventService {
 
     searchEvents(page: number, size: number, sort: string[]): Observable<SearchEventResult> {
         let params = new HttpParams();
-        params.append("page", page)
-        params.append("size", size)
-        params.append("sort", sort.toString())
-        return this.http.get<SearchEventResult>(this.apiUrl, { params });
+        params = params.append("page", page)
+        params = params.append("size", size)
+        params = params.append("sort", sort.toString())
+        return this.http.get<SearchEventResult>(this.apiUrl, { params: params });
     }
 }

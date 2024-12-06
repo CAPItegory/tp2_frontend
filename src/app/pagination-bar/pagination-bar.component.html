@@ -4,6 +4,10 @@
         <button (click)="previousPage()">Prev</button>
         {{pageNumber}}
         <button (click)="nextPage()">Next</button>
-        {{totalPages}}
+        @if(totalPages == 0) {
+            1
+        } @else {
+            {{totalPages}}
+        }
     </div>
 </div>
