@@ -7,17 +7,19 @@ import { BadRequestError } from '../exceptions/bad-request.exception';
 
 import { PaginationBarComponent } from '../pagination-bar/pagination-bar.component';
 import { Artist } from '../models/artist.model';
+import { ArtistManagementComponent } from '../artist-management/artist-management.component';
 
 @Component({
   selector: 'app-list-artist',
   standalone: true,
-  imports: [RouterLink, PaginationBarComponent],
+  imports: [RouterLink, PaginationBarComponent, ArtistManagementComponent],
   templateUrl: './list-artist.component.html',
   styleUrl: './list-artist.component.scss'
 })
 export class ListArtistComponent {
   @Input() id: string | null = null
   artists : Artist[] = []
+  isHiddenPopUp: boolean = true;
 
   pageNumber: number = 1
   pageSize: number = 4
@@ -45,6 +47,14 @@ export class ListArtistComponent {
         this.artists = response.content;
         this.totalPages = response.totalPages;
       });
+  }
+
+  public showCreatePopUp() {
+    this.isHiddenPopUp = false;
+  }
+
+  public hidePopUp() {
+    this.isHiddenPopUp = true;
   }
 
 }

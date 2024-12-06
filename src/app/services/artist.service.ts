@@ -28,7 +28,7 @@ export class ArtistService {
 
     createArtist(label: string): Observable<Artist> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        return this.http.post<Artist>(this.apiUrl, label, { headers });
+        return this.http.post<Artist>(this.apiUrl, {label: label}, { headers });
     }
     
     getEventsByArtist(artistId: string): Observable<Event[]> {
