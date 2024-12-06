@@ -57,4 +57,10 @@ export class ListArtistComponent {
     this.isHiddenPopUp = true;
   }
 
+  async deleteArtist(id: string) {
+    this.artistService.deleteArtist(id).subscribe(response => {
+      this.artists = this.artists.filter(a => a.id != id)
+    })
+  }
+
 }

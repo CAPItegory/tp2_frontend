@@ -7,12 +7,17 @@
     <article>
         <div class="artists">
         @for (artist of artists; track $index) {
-            <div class="artist" [routerLink]="['/artists', artist.id]">
-                <div class="img_column">
-                    <img src="../../assets/details.svg" />
+            <div class="artist_actions">
+                <div class="artist" [routerLink]="['/artists', artist.id]">
+                    <div class="img_column">
+                        <img src="../../assets/details.svg" />
+                    </div>
+                    <div>
+                        <p class="name">{{artist.label}}</p>
+                    </div>
                 </div>
-                <div>
-                    <p class="name">{{artist.label}}</p>
+                <div class="img_column">
+                    <img src="assets/trash-icon.svg" (click)="deleteArtist(artist.id)" />
                 </div>
             </div>
         }
