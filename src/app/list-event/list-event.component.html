@@ -26,4 +26,4 @@
         </div>
     </article>
 </div>
-<app-pagination-bar [pageNumber]="pageNumber" [totalPages]="totalPages" [minPage]="minPage"></app-pagination-bar>
+<app-pagination-bar [pageNumber]="pageNumber" [totalPages]="totalPages" (pageNumberChange)="pageChange($event)"></app-pagination-bar>

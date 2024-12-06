@@ -2,8 +2,12 @@
     <div class="wrapped">
         {{minPage}}
         <button (click)="previousPage()">Prev</button>
-        {{pageNumber + 1}}
+        {{pageNumber}}
         <button (click)="nextPage()">Next</button>
-        {{totalPages}}
+        @if(totalPages == 0) {
+            1
+        } @else {
+            {{totalPages}}
+        }
     </div>
 </div>
