@@ -8,9 +8,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './pagination-bar.component.scss'
 })
 export class PaginationBarComponent {
-  @Input() pageNumber : number = 0
-  @Input() totalPages : number = 0
-  @Input() minPage : number = 0
+  @Input() pageNumber : number = 1
+  @Input() totalPages : number = 1
+  minPage : number = 1
 
   @Output() pageNumberChange: EventEmitter<number> = new EventEmitter()
 

@@ -1,11 +1,11 @@
-<div id="artists">
+<div id="list">
     <div id="header">
         <div class="title">
         <h2>List of artists</h2>
         </div>
     </div>
     <article>
-        <div class="list">
+        <div class="artists">
         @for (artist of artists; track $index) {
             <div class="artist" [routerLink]="['/artists', artist.id]">
                 <div class="img_column">
@@ -29,5 +29,4 @@
 <div id="create-artist-popup" [hidden]="isHiddenPopUp">
     <app-artist-management [editMode]="false" (hiddenChange)="hidePopUp()" (artistChange)="loadChildren()"></app-artist-management>
 </div>
-<app-pagination-bar [pageNumber]="pageNumber" [totalPages]="totalPages" [minPage]="minPage"></app-pagination-bar>
-
+<app-pagination-bar [pageNumber]="pageNumber" [totalPages]="totalPages" (pageNumberChange)="pageChange($event)"></app-pagination-bar>

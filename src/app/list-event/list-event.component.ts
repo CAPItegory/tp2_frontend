@@ -14,12 +14,13 @@ import { EventService } from '../services/event.service';
   styleUrl: './list-event.component.scss'
 })
 export class ListEventComponent {
+
   @Input() id: string | null = null
   events : Event[] = []
 
   pageNumber: number = 1
-  pageSize: number = 4
-  totalPages: number = 0
+  pageSize: number = 3
+  totalPages: number = 1
   minPage = 1
   
   constructor(private eventService: EventService, private activatedRoute : ActivatedRoute, private popupService : PopupService) {}

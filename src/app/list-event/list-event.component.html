@@ -13,10 +13,17 @@
                 </div>
                 <div>
                     <p class="name">{{event.label}}</p>
+                    <p class="dates">From : {{event.startDate}} -  To : {{event.endDate}}</p>
+                    @if(event.artists.length >= 1) {
+                        <p class="artists">Will be present {{event.artists.length}} artists: {{event.artists[0].label}}
+                            @if(event.artists.length > 2) {
+                                , {{event.artists[1].label}}
+                            }...</p>
+                    }
                 </div>
             </div>
         }
         </div>
     </article>
 </div>
-<app-pagination-bar [pageNumber]="pageNumber" [totalPages]="totalPages" [minPage]="minPage"></app-pagination-bar>
+<app-pagination-bar [pageNumber]="pageNumber" [totalPages]="totalPages" (pageNumberChange)="pageChange($event)"></app-pagination-bar>
