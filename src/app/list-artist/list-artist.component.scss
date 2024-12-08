@@ -20,6 +20,7 @@ img {
 #header {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .artists {
@@ -98,6 +99,8 @@ article {
     margin-left: 1rem;
     background-color: #ff003c;
     border-radius: 25px;
+    width: auto;
+    white-space: nowrap;
 }
 
 aside {
