@@ -5,11 +5,12 @@ import { PopupService } from '../services/popup.service';
 import { PaginationBarComponent } from '../pagination-bar/pagination-bar.component';
 import { Event } from '../models/event.model';
 import { EventService } from '../services/event.service';
+import { EventManagementComponent } from '../event-management/event-management.component';
 
 @Component({
   selector: 'app-list-artist',
   standalone: true,
-  imports: [RouterLink, PaginationBarComponent],
+  imports: [RouterLink, PaginationBarComponent, EventManagementComponent],
   templateUrl: './list-event.component.html',
   styleUrl: './list-event.component.scss'
 })
@@ -17,8 +18,9 @@ export class ListEventComponent {
 
   @Input() id: string | null = null
   events : Event[] = []
+  isHiddenPopUp: boolean = true;
 
-  pageNumber: number = 1
+  pageNumber: number = 0
   pageSize: number = 3
   totalPages: number = 1
   minPage = 1
@@ -44,6 +46,14 @@ export class ListEventComponent {
         this.events = response.content;
         this.totalPages = response.totalPages;
       });
+  }
+
+  public showCreatePopUp() {
+    this.isHiddenPopUp = false;
+  }
+
+  public hidePopUp() {
+    this.isHiddenPopUp = true;
   }
 
 }
