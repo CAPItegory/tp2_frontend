@@ -6,7 +6,7 @@
     height: 100%;
 }
 
-#artist-text {
+#artist-text, #artist-link {
     color:aliceblue;
     background-color: #000000b5;
     margin: 2rem;
@@ -18,6 +18,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#artist-link {
+    width: 30%;
 }
 
 .edit-popup {
@@ -53,4 +57,9 @@ button {
     img {
         width: 50%;
     }
+}
+
+ng-select {
+    width: 100%;
+    padding-bottom: 1rem;
 }
