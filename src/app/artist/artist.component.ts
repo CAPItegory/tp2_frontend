@@ -76,7 +76,16 @@ export class ArtistComponent {
       return;
     }
     this.eventService.linkEventToArtist(this.artist.id, this.selectedEvent.id).subscribe(
-      (response) => {this.loadArtistEvents()}
+      (response) => this.loadArtistEvents()
+    )
+  }
+
+  protected unlinkWithEvent(eventId: string) {
+    if (this.artist == null) {
+      return;
+    }
+    this.eventService.unlinkEventToArtist(this.artist.id, eventId).subscribe(
+      (response) => this.loadArtistEvents()
     )
   }
 

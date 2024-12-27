@@ -63,3 +63,38 @@ ng-select {
     width: 100%;
     padding-bottom: 1rem;
 }
+
+td {
+    text-align: center;
+    margin: auto;
+    img {
+        width: 40%;
+    }
+}
+
+th.unlink {
+    width: 15%;
+}
+
+table {
+    border-collapse: collapse; 
+    width: 80%;
+    margin-bottom: 2rem;
+}
+
+thead {
+    border-bottom: 1pt solid white;
+
+    tr th {
+        padding-bottom: 1rem;
+    }
+
+}
+
+tbody tr:first-child td{
+    padding-top: 1rem;
+}
+
+td img {
+    cursor: pointer;
+}
