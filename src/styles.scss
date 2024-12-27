@@ -1,3 +1,4 @@
+@import '../node_modules/@ng-select/ng-select/themes/default.theme.css';
 /* You can add global styles to this file, and also import other style files */
 $font-stack: Helvetica, sans-serif;
 
@@ -10,3 +11,4 @@ html, body, app-root {
     padding: 0;
     font-family: $font-stack;
   }
+

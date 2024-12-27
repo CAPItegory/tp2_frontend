@@ -38,4 +38,12 @@ export class EventService {
         params = params.append("sort", sort.toString())
         return this.http.get<SearchEventResult>(this.apiUrl, { params: params });
     }
+
+    linkEventToArtist(artistId: string, eventId: string): Observable<void> {
+        return this.http.post<any>(`${this.apiUrl}/${eventId}/artists/${artistId}`, {});
+    }
+
+    unlinkEventToArtist(artistId: string, eventId: string): Observable<void> {
+        return this.http.delete<any>(`${this.apiUrl}/${eventId}/artists/${artistId}`);
+    }
 }

@@ -4,7 +4,39 @@
 <div id="artist-detail" [hidden]="!isHiddenEditPopUp">
     <div id="artist-text" >
         <h1>{{artist?.label}}</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Will participate in</th>
+                    <th class="unlink"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (event of artistEvents; track $index) {
+                    <tr>
+                        <td>{{event.label}}</td>
+                        <td><img src="assets/unlink.svg" (click)="unlinkWithEvent(event.id)"/></td>
+                    </tr>
+                }
+                @if (artistEvents.length == 0) {
+                    <tr>
+                        <td>Nothing</td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
         <button (click)="showPopUp()">Edit</button>
+    </div>
+    <div id="artist-link">
+        <ng-select [items]="events" 
+        [virtualScroll]="true" 
+        placeholder="Select an event to link" 
+        (scrollToEnd)="fetchMore()" 
+        bindLabel="label"
+        [(ngModel)]="selectedEvent">
+    </ng-select>
+    <button (click)="linkWithEvent()">Link</button>
     </div>
 </div>
 
