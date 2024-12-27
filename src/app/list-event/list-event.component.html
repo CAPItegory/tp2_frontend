@@ -26,13 +26,13 @@
         </div>
     </article>
 </div>
-<aside>
-    <div class="nav-button">
+<div id="add-event">
+    <div class="add-button">
         <button id='plus' (click)="showCreatePopUp()">
             <img src="assets/create.svg" />
         </button>
     </div>
-</aside>
+</div>
 <div id="create-event-popup" [hidden]="isHiddenPopUp">
     <app-event-management [editMode]="false" (hiddenChange)="hidePopUp()" (eventChange)="loadChildren()"></app-event-management>
 </div>
