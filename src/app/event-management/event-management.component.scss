@@ -2,8 +2,8 @@ $primary: #acd1fb;
 $dark: #000000;
 
 div {
-  width: 40%;
-  height: 40%;
+  width: 70%;
+  height: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,20 +68,14 @@ input {
     }
 }
 
-#event_name {
-    margin: auto;
-    width: 100%;
-    max-width: 280px;
+#event_name, #event_start_date, #event_end_date {
     border-radius: 3px;
-    overflow: hidden;
     position: relative;
+    width: 90%;
     
 
-    #name {
+    #name, #start-date, #end-date {
         position: relative;
-        margin: auto;
-        width: 100%;
-        max-width: 280px;
         border-radius: 3px
     }
     .focus-bg {

@@ -8,7 +8,7 @@ import { EventService } from '../services/event.service';
 import { EventManagementComponent } from '../event-management/event-management.component';
 
 @Component({
-  selector: 'app-list-artist',
+  selector: 'app-list-event',
   standalone: true,
   imports: [RouterLink, PaginationBarComponent, EventManagementComponent],
   templateUrl: './list-event.component.html',

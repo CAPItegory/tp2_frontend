@@ -31,13 +31,13 @@
         </div>
     </article>
 </div>
-<aside>
-    <div class="nav-button">
+<div id="add-artist">
+    <div class="add-button">
         <button id='plus' (click)="showCreatePopUp()">
             <img src="assets/create.svg" />
         </button>
     </div>
-</aside>
+</div>
 <div id="create-artist-popup" [hidden]="isHiddenPopUp">
     <app-artist-management [editMode]="false" (hiddenChange)="hidePopUp()" (artistChange)="loadChildren()"></app-artist-management>
 </div>
