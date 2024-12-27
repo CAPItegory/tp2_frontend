@@ -28,7 +28,7 @@ export class EventService {
 
     createEvent(label: string, startDate: Date, endDate: Date): Observable<Event> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        return this.http.post<Event>(this.apiUrl, {"label": label, "startDate": startDate, "endDate": endDate}, { headers });
+        return this.http.post<Event>(this.apiUrl, {"label": label, "startDate": startDate.toLocaleDateString('sv'), "endDate": endDate.toLocaleDateString('sv')}, { headers });
     }
 
     searchEvents(page: number, size: number, sort: string[]): Observable<SearchEventResult> {

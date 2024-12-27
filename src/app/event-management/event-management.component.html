@@ -1,0 +1,30 @@
+<div id="create_event">
+    @if (!editMode) {
+        <h2>Create a new event</h2>
+    }
+    @else {
+        <h2>Edit event</h2>
+    }
+    
+    <form [formGroup]="eventForm" (ngSubmit)="manageEvent()">
+        <label id="event_name" for="name">
+            <input type="text" id="name" placeholder="&nbsp;" formControlName="name">
+            <span class="label">New event name:</span>
+            <span class="focus-bg"></span>
+        </label>
+        <label id="event_start_date" for="start-date">
+            <input type="date" id="start-date" placeholder="Start date" formControlName="startDate">
+            <span class="label">New start date:</span>
+            <span class="focus-bg"></span>
+        </label>
+        <label id="event_end_date" for="end-date">
+            <input type="date" id="end-date" placeholder="End date" formControlName="endDate">
+            <span class="label">New end date:</span>
+            <span class="focus-bg"></span>
+        </label>
+        <div class="row">
+            <button type="submit" id="submit" value="send">Send</button>
+            <button type="button" value="back" (click)="hidePopup()">Back</button>
+        </div>
+    </form>
+</div>

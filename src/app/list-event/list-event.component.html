@@ -26,4 +26,14 @@
         </div>
     </article>
 </div>
+<div id="add-event">
+    <div class="add-button">
+        <button id='plus' (click)="showCreatePopUp()">
+            <img src="assets/create.svg" />
+        </button>
+    </div>
+</div>
+<div id="create-event-popup" [hidden]="isHiddenPopUp">
+    <app-event-management [editMode]="false" (hiddenChange)="hidePopUp()" (eventChange)="loadChildren()"></app-event-management>
+</div>
 <app-pagination-bar [pageNumber]="pageNumber" [totalPages]="totalPages" (pageNumberChange)="pageChange($event)"></app-pagination-bar>

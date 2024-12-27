@@ -15,3 +15,9 @@
         </div>
     </div>
 </div>
+<a routerLink="/events" class="back-arrow">
+    <img src="/assets/back-arrow.svg"/>
+</a>
+<div class="edit-popup" [hidden]="isHiddenEditPopUp">
+    <app-event-management [editMode]="true" [eventId]="event?.id ?? ''" (hiddenChange)="hidePopUp()" (eventChange)="setEventData($event)"></app-event-management>
+</div>
