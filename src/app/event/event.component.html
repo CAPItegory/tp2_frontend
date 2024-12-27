@@ -1,23 +1,44 @@
+<a routerLink="/events" class="back-arrow">
+    <img src="/assets/back-arrow.svg"/>
+</a>
 <div id="event-detail">
     <div id="event-text">
         <h1>{{event?.label}}</h1>
         <p>From {{event?.startDate}} to {{event?.endDate}}</p>
-        <div>
-            <p>Coming artists :</p>
-            <ul>
-            @for (artist of event?.artists; track $index) {
-                <li>{{artist.label}}</li>
-            }
-            @if (event?.artists?.length == 0) {
-                <p>Nobody</p>
-            }
-        </ul>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Will be coming</th>
+                    <th class="unlink"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (artist of event?.artists; track $index) {
+                    <tr>
+                        <td>{{artist.label}}</td>
+                        <td><img src="assets/unlink.svg" (click)="unlinkWithArtist(artist.id)"/></td>
+                    </tr>
+                }
+                @if (event?.artists?.length == 0) {
+                    <tr>
+                        <td>No one</td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="event-link">
+        <ng-select [items]="artists" 
+        [virtualScroll]="true" 
+        placeholder="Select an artist to link" 
+        (scrollToEnd)="fetchMore()" 
+        bindLabel="label"
+        [(ngModel)]="selectedArtist">
+    </ng-select>
+    <button (click)="linkWithArtist()">Link</button>
     </div>
 </div>
-<a routerLink="/events" class="back-arrow">
-    <img src="/assets/back-arrow.svg"/>
-</a>
 <div class="edit-popup" [hidden]="isHiddenEditPopUp">
     <app-event-management [editMode]="true" [eventId]="event?.id ?? ''" (hiddenChange)="hidePopUp()" (eventChange)="setEventData($event)"></app-event-management>
 </div>
