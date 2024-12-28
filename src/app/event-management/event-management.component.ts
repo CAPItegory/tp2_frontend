@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Event } from '../models/event.model';
 import { EventService } from '../services/event.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { PopupService } from '../services/popup.service';
 
 @Component({
   selector: 'app-event-management',
@@ -19,7 +20,7 @@ export class EventManagementComponent {
   @Input() eventId: string | null = null
 
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService, private popupService: PopupService) {}
 
   eventForm = new FormGroup({
       name : new FormControl(''),
@@ -38,11 +39,25 @@ export class EventManagementComponent {
 
 
   async createEvent(): Promise<void> {
+    if ((this.eventForm.value.name?.length ?? 0) < 3) {
+      this.popupService.openWarning("Invalid name, too short")
+      return;
+    }
+    var startDate = (this.eventForm.value.startDate ?? "") == "" ? new Date() : new Date(this.eventForm.value.startDate!)
+    var endDate = (this.eventForm.value.endDate ?? "") == "" ? new Date() : new Date(this.eventForm.value.endDate!)
+    if (startDate < new Date()) {
+      this.popupService.openWarning("Invalid date, begin before today")
+      return;
+    }
+    if (startDate > endDate) {
+      this.popupService.openWarning("Invalid date, begin after the end")
+      return;
+    }
     this.hiddenChange.emit(true);
     this.eventService.createEvent(this.eventForm.value.name ?? "", 
-      this.eventForm.value.startDate == null ? new Date() : new Date(this.eventForm.value.startDate), 
-      this.eventForm.value.endDate == null ? new Date() : new Date(this.eventForm.value.endDate)).subscribe(
-      (event) => this.eventChange.emit(event)
+      startDate, endDate
+      ).subscribe(
+      (event) => {this.eventChange.emit(event); this.popupService.openSuccess("Event created")}
     );
   }
 
@@ -50,12 +65,25 @@ export class EventManagementComponent {
 
 
   async editEvent(): Promise<void> {
+    if ((this.eventForm.value.name?.length ?? 0) < 3) {
+      this.popupService.openWarning("Invalid name, too short")
+      return;
+    }
+    var startDate = (this.eventForm.value.startDate ?? "") == "" ? new Date() : new Date(this.eventForm.value.startDate!)
+    var endDate = (this.eventForm.value.endDate ?? "") == "" ? new Date() : new Date(this.eventForm.value.endDate!)
+    if (startDate < new Date()) {
+      this.popupService.openWarning("Invalid date, begin before today")
+      return;
+    }
+    if (startDate > endDate) {
+      this.popupService.openWarning("Invalid date, begin after the end")
+      return;
+    }
     this.hiddenChange.emit(true);
     this.eventService.editEvent(this.eventId ?? "", this.eventForm.value.name ?? "",
-      this.eventForm.value.startDate == null ? new Date() : new Date(this.eventForm.value.startDate), 
-      this.eventForm.value.endDate == null ? new Date() : new Date(this.eventForm.value.endDate)
+      startDate, endDate 
     ).subscribe(
-      (event) => this.eventChange.emit(event)
+      (event) => {this.eventChange.emit(event); this.popupService.openSuccess("Event edited")}
     )
   }
 
