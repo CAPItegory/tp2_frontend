@@ -21,11 +21,16 @@
     justify-content: center;
 }
 
+#event-text {
+    height: 60%;
+}
+
 img {
     width: 50%;
 }
 
 .back-arrow {
+    position: absolute;
     padding: 2rem;
     img {
         width: 4rem;
@@ -73,8 +78,7 @@ th.unlink {
 
 table {
     border-collapse: collapse; 
-    width: 80%;
-    margin-bottom: 2rem;
+    width: 100%;
 }
 
 thead {
@@ -92,4 +96,11 @@ tbody tr:first-child td{
 
 td img {
     cursor: pointer;
+}
+
+.scroll {
+    overflow-y: auto;
+    width: 80%;
+    height: 80%;
+    margin-bottom: 2rem;
 }

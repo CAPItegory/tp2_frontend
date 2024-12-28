@@ -22,8 +22,8 @@ export class EventService {
         return this.http.put<Event>(`${this.apiUrl}/${id}`, {"label": label, "startDate": startDate, "endDate": endDate}, { headers });
     }
 
-    deleteEvent(id: string): void {
-        this.http.delete<any>(`${this.apiUrl}/${id}`);
+    deleteEvent(id: string): Observable<void> {
+        return this.http.delete<any>(`${this.apiUrl}/${id}`);
     }
 
     createEvent(label: string, startDate: Date, endDate: Date): Observable<Event> {

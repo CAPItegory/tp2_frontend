@@ -56,4 +56,10 @@ export class ListEventComponent {
     this.isHiddenPopUp = true;
   }
 
+  async deleteEvent(id: string) {
+    this.eventService.deleteEvent(id).subscribe(_ => {
+      this.events = this.events.filter(a => a.id != id)
+    })
+  }
+
 }

@@ -5,28 +5,30 @@
     <div id="event-text">
         <h1>{{event?.label}}</h1>
         <p>From {{event?.startDate}} to {{event?.endDate}}</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Will be coming</th>
-                    <th class="unlink"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (artist of event?.artists; track $index) {
+        <div class="scroll">
+            <table>
+                <thead>
                     <tr>
-                        <td>{{artist.label}}</td>
-                        <td><img src="assets/unlink.svg" (click)="unlinkWithArtist(artist.id)"/></td>
+                        <th>Will be coming</th>
+                        <th class="unlink"></th>
                     </tr>
-                }
-                @if (event?.artists?.length == 0) {
-                    <tr>
-                        <td>No one</td>
-                        <td></td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @for (artist of event?.artists; track $index) {
+                        <tr>
+                            <td>{{artist.label}}</td>
+                            <td><img src="assets/unlink.svg" (click)="unlinkWithArtist(artist.id)"/></td>
+                        </tr>
+                    }
+                    @if (event?.artists?.length == 0) {
+                        <tr>
+                            <td>No one</td>
+                            <td></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
     <div id="event-link">
         <ng-select [items]="artists" 

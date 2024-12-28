@@ -1,25 +1,30 @@
-<div id="events">
+<div id="list">
     <div id="header">
         <div class="title">
-        <h2>List of events</h2>
+            <h2>List of events</h2>
         </div>
     </div>
     <article>
-        <div class="list">
+        <div class="events">
         @for (event of events; track $index) {
-            <div class="event" [routerLink]="['/events', event.id]">
-                <div class="img_column">
-                    <img src="../../assets/details.svg" />
+            <div class="event_actions">
+                <div class="event" [routerLink]="['/events', event.id]">
+                    <div class="img_column">
+                        <img src="../../assets/details.svg" />
+                    </div>
+                    <div>
+                        <p class="name">{{event.label}}</p>
+                        <p class="dates">From : {{event.startDate}} -  To : {{event.endDate}}</p>
+                        @if(event.artists.length >= 1) {
+                            <p class="artists">Will be present {{event.artists.length}} artists: {{event.artists[0].label}}
+                                @if(event.artists.length > 2) {
+                                    , {{event.artists[1].label}}
+                                }...</p>
+                        }
+                    </div>
                 </div>
-                <div>
-                    <p class="name">{{event.label}}</p>
-                    <p class="dates">From : {{event.startDate}} -  To : {{event.endDate}}</p>
-                    @if(event.artists.length >= 1) {
-                        <p class="artists">Will be present {{event.artists.length}} artists: {{event.artists[0].label}}
-                            @if(event.artists.length > 2) {
-                                , {{event.artists[1].label}}
-                            }...</p>
-                    }
+                <div class="img_column">
+                    <img src="assets/trash-icon.svg" (click)="deleteEvent(event.id)" />
                 </div>
             </div>
         }
